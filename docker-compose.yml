@@ -8,6 +8,7 @@ services:
     volumes: 
       - ./html:/usr/share/nginx/html:rw
       - ./conf.d:/etc/nginx/conf.d
+      - ./letsencrypt/etc:/etc/letsencrypt
 
   cerbot:
     image: certbot/certbot
