@@ -6,7 +6,7 @@ services:
       - "80:80"
       - "443:443"
     volumes: 
-      - ./html:/usr/share/nginx/html:ro
+      - ./html:/usr/share/nginx/html:rw
       - ./conf.d:/etc/nginx/conf.d
 
   cerbot:
@@ -14,4 +14,4 @@ services:
     volumes: 
       - ./letsencrypt/etc:/etc/letsencrypt
       - ./letsencrypt/var/lib/:/var/lib/letsencrypt
-      - ./html:/data/letsencrypt
+      - ./html:/data/letsencrypt:rw
