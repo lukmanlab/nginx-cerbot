@@ -4,3 +4,8 @@ docker-compose run -d cerbot \
 certonly --webroot --register-unsafely-without-email \
 --agree-tos --webroot-path=/data/letsencrypt --staging \
 -d wormroot.tech
+
+docker-compose run -d cerbot \
+certonly --webroot --email admin@lukmanlab.com \
+--agree-tos --no-eff-email --webroot-path=/data/letsencrypt \
+-d wormroot.tech

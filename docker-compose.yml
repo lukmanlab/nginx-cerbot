@@ -2,16 +2,16 @@ version: '3'
 services:
   nginx:
     image: nginx:alpine
-  port:
-    - "80:80"
-    - "443:443"
-  volumes: 
-    - ./html:/usr/share/nginx/html:rw
-    - ./conf.d:/etc/nginx/conf.d:rw
-    
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes: 
+      - ./html:/usr/share/nginx/html:ro
+      - ./conf.d:/etc/nginx/conf.d
+
   cerbot:
     image: certbot/certbot
     volumes: 
       - ./letsencrypt/etc:/etc/letsencrypt
       - ./letsencrypt/var/lib/:/var/lib/letsencrypt
-      - ./html:/data/letsencrypt:rw
+      - ./html:/data/letsencrypt
